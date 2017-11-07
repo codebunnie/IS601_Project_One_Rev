@@ -9,7 +9,15 @@
 <?php
 
 
-if($_FILES['file']['type']!='text/csv'){
+if($_FILES['file']['type']!=(
+  'text/csv'
+|| 'application/vnd.ms-excel'
+|| 'text/comma-separated-values'
+|| 'application/csv'
+|| 'text/x-comma-separated-values'
+|| 'application/x-csv'
+|| 'text/plain'
+ )){
 	
 	header('Location: index.php?wrong_file_error=true');
 	
@@ -42,7 +50,9 @@ $data = fgetcsv($file);
 
 
 ?>
-<td><h3> <?php echo "You are Uploading the Following File:    <b>".$filename."</b> To the following directory <b>".$dir."</b> </h3> </td></tr>"; ?>
+<td><h3> <?php 
+echo "MIME TYPE DETECTED: ".mime_content_type($filename). " " ;
+echo "<br><br> You are Uploading the Following File:    <b>".$filename."</b> To the following directory <b>".$dir."</b> </h3> </td></tr>"; ?>
 <tr><td><h3><a href="index.php"> Upload Another File </h3></a></td></tr>
 </table>
 
