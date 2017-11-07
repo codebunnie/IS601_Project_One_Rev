@@ -9,7 +9,7 @@
 <?php
 
 
-if($_FILES['file']['type']!='application/csv'){
+if($_FILES['file']['type']!='text/csv'){
 	
 	header('Location: index.php?wrong_file_error=true');
 	
