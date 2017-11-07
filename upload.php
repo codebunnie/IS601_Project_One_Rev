@@ -9,7 +9,7 @@
 <?php
 
 
-if($_FILES['file']['type']!='application/vnd.ms-excel'){
+if($_FILES['file']['type']!='application/csv'){
 	
 	header('Location: index.php?wrong_file_error=true');
 	
